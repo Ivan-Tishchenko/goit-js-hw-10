@@ -46,7 +46,7 @@ function build(obj) {
        countryList.insertAdjacentHTML("afterbegin", `<svg class="flag" width="100" height="100">
           <use src=${obj[0].flags.svg}></use>
         </svg>
-         <p>${obj[0].name.oficial}</p>`)
+         <p>${obj[0].name.official}</p>`)
     }
   
 }
