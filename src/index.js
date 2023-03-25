@@ -6,6 +6,8 @@ const DEBOUNCE_DELAY = 300;
 
 const input = document.querySelector("input");
 input.addEventListener("input", search);
+const countryList = document.querySelector(".country-list");
+const countryInfo = document.querySelector(".country-info");
 
 
 function search(e) {
@@ -36,8 +38,14 @@ function search(e) {
     
 
 // function fetchCountries(name) {
-//     return fetch(`https://restcountries.com/v3.1/name/${name}`);
+//     return fetch(`https://restcountries.com/v3.1/name/${name}?fields=name,flags,capital,population,languages`);
 // }
 // function build(obj) {
 //     console.log(obj)
+//     if (obj.length === 1) {
+//        countryList.insertAdjacentHTML("afterbegin", `<svg class="flag" width="100" height="100">
+//           <use src=${obj[0].flags.svg}></use>
+//         </svg>`)
+//     }
+  
 // }
