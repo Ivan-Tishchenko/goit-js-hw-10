@@ -1,6 +1,6 @@
 import './css/styles.css';
 import fetchCountries from './js/fetchCounters';
-import build from './js/build';
+// import build from './js/build';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -40,12 +40,13 @@ function search(e) {
 // function fetchCountries(name) {
 //     return fetch(`https://restcountries.com/v3.1/name/${name}?fields=name,flags,capital,population,languages`);
 // }
-// function build(obj) {
-//     console.log(obj)
-//     if (obj.length === 1) {
-//        countryList.insertAdjacentHTML("afterbegin", `<svg class="flag" width="100" height="100">
-//           <use src=${obj[0].flags.svg}></use>
-//         </svg>`)
-//     }
+function build(obj) {
+    console.log(obj)
+    if (obj.length === 1) {
+       countryList.insertAdjacentHTML("afterbegin", `<svg class="flag" width="100" height="100">
+          <use src=${obj[0].flags.svg}></use>
+        </svg>
+         <p>${obj[0].name.oficial}</p>`)
+    }
   
-// }
+}
