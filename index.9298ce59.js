@@ -1,2 +1,0 @@
-function e(e){return fetch(`https://restcountries.com/v3.1/name/${e}`)}document.querySelector("input").addEventListener("input",(function(t){t.target.value.length>=1&&(console.log(e(t.target.value)),e(t.target.value).then((e=>{if(!e.ok)throw new Erorr(e.status);return console.log(e.json()),e.json()})).than((e=>{e.length>10?console.log("Too many matches found. Please enter a more specific name."):console.log("sdfsd")})).catch((e=>{console.log(e)})))}));
-//# sourceMappingURL=index.9298ce59.js.map
