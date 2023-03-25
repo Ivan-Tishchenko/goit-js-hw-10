@@ -19,20 +19,25 @@ function search(e) {
         if (!countrys.ok) {
             throw new Erorr(countrys.status);
         }
-        console.log(countrys.json())
         return countrys.json();
-        })
-        .than(obj => {
-        if (obj.length > 10) {
+        }).then(data => {
+            if (data.length > 10) {
             console.log("Too many matches found. Please enter a more specific name.")
             return;
         }
-        build(obj);
+        build(data);
         return;
-        })
+        })    
         .catch(erorr => {
         console.log(erorr)
         })
     }
 }
     
+
+// function fetchCountries(name) {
+//     return fetch(`https://restcountries.com/v3.1/name/${name}`);
+// }
+// function build(obj) {
+//     console.log(obj)
+// }
