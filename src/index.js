@@ -14,9 +14,12 @@ const countryInfo = document.querySelector(".country-info");
 function search(e) {
     clearHTML()
 
-    if (e.target.value.length >= 1) {
+    const value = e.target.value.trim();
+   
 
-        fetchCountries(e.target.value)
+    if (value.length >= 1) {
+
+        fetchCountries(value)
         .then(countrys => {
             if (!countrys.ok) {
             throw new Error(countrys.status);
