@@ -57,7 +57,7 @@ function build(obj) {
         )}</p>
          </div>`)
     } else {
-        for (i = 0; i < obj.length; i += 1) {
+        for (let i = 0; i < obj.length; i += 1) {
             countryList.insertAdjacentHTML("beforeend", `<div class="flex">
             <img src=${obj[i].flags.svg} alt=${obj[0].name.official} width="100">
             <h2>${obj[i].name.official}</h2>
