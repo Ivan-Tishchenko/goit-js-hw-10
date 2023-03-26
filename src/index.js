@@ -44,7 +44,7 @@ function build(obj) {
     console.log(obj)
     if (obj.length === 1) {
        countryList.insertAdjacentHTML("afterbegin", `<svg class="flag" width="100" height="100">
-          <use src=${obj[0].flags.svg}></use>
+          <use href=${obj[0].flags.svg} src=${obj[0].flags.svg}></use>
         </svg>
          <p>${obj[0].name.official}</p>`)
     }
