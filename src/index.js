@@ -11,6 +11,8 @@ const countryInfo = document.querySelector(".country-info");
 
 
 function search(e) {
+    clearHTML()
+
     if (e.target.value.length >= 1) {
 
         console.log(fetchCountries(e.target.value))
@@ -18,7 +20,8 @@ function search(e) {
 
         fetchCountries(e.target.value)
         .then(countrys => {
-        if (!countrys.ok) {
+            if (!countrys.ok) {
+            console.log(countrys.status)
             throw new Erorr(countrys.status);
         }
         return countrys.json();
@@ -42,11 +45,33 @@ function search(e) {
 // }
 function build(obj) {
     console.log(obj)
+    
     if (obj.length === 1) {
-       countryList.insertAdjacentHTML("afterbegin", `<svg class="flag" width="100" height="100">
-          <use href=${obj[0].flags.svg} src=${obj[0].flags.svg}></use>
-        </svg>
-         <p>${obj[0].name.official}</p>`)
+       countryInfo.insertAdjacentHTML("afterbegin", `<div>
+        <img src=${obj[0].flags.svg} alt=${obj[0].name.official} width="100">
+        <h2>${obj[0].name.official}</h2>
+        <p>Capital: ${obj[0].capital}</p>
+        <p>Population: ${obj[0].population}</p>
+        <p>Languages: ${Object.values(obj[0].languages).join(
+        ', '
+        )}</p>
+         </div>`)
+    } else {
+        for (i = 0; i < obj.length; i += 1) {
+            countryList.insertAdjacentHTML("beforeend", `<div class="flex">
+            <img src=${obj[i].flags.svg} alt=${obj[0].name.official} width="100">
+            <h2>${obj[i].name.official}</h2>
+            </div>`)
+        }
     }
   
+}
+
+function clearHTML() {
+    const listClear = [...countryList.children].forEach(element => {
+        element.remove();
+    });
+    const infoClear = [...countryInfo.children].forEach(element => {
+        element.remove();
+    });
 }
