@@ -4,21 +4,16 @@ import debounce from "lodash.debounce";
 import Notiflix from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
-
 const input = document.querySelector("input");
 input.addEventListener("input", debounce(search, DEBOUNCE_DELAY));
 const countryList = document.querySelector(".country-list");
 const countryInfo = document.querySelector(".country-info");
 
-
 function search(e) {
     clearHTML()
-
     const value = e.target.value.trim();
    
-
     if (value.length >= 1) {
-
         fetchCountries(value)
         .then(countrys => {
             if (!countrys.ok) {
